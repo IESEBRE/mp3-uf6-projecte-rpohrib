@@ -1,7 +1,5 @@
--- Poseu el codi dels procediments/funcions emmagatzemats, triggers, ..., usats al projecte
 
---Procediment per crear l'usuari C##HR per si no existeix
-CREATE OR REPLACE PROCEDURE crear_usuari_hr AS
+DECLARE
     v_user_count NUMBER;
 BEGIN
     -- Comprova si l'usuari ja existeix
@@ -12,18 +10,15 @@ BEGIN
 
     -- Si l'usuari no existeix, el crea
     IF v_user_count = 0 THEN
-        EXECUTE IMMEDIATE 'CREATE USER C##HR IDENTIFIED BY password';
+        EXECUTE IMMEDIATE 'CREATE USER C##HR IDENTIFIED BY HR';
         EXECUTE IMMEDIATE 'GRANT CREATE SESSION TO C##HR';
         EXECUTE IMMEDIATE 'GRANT CREATE TABLE TO C##HR';
         EXECUTE IMMEDIATE 'GRANT CREATE TRIGGER TO C##HR';
         EXECUTE IMMEDIATE 'GRANT EXECUTE ON DBMS_OUTPUT TO C##HR';
         DBMS_OUTPUT.PUT_LINE('Usuari C##HR creat amb èxit.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('L''usuari C##HR ja existeix.');
     END IF;
-END;
-/
-
-BEGIN
-    crear_usuari_hr;
 END;
 /
 
@@ -48,6 +43,9 @@ BEGIN
                 ES_NOU NUMBER(1) NOT NULL
             )
         ';
+        DBMS_OUTPUT.PUT_LINE('La taula COTXES ha estat creada.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('La taula COTXES ja existeix.');
     END IF;
 END;
 /
