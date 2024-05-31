@@ -35,7 +35,7 @@ public class CotxeDAOJDBCOracleImpl implements DAO<Cotxe> {
      * */
     @Override
     public Cotxe get(Long id) throws DAOException {
-        ResourceBundle rb = ResourceBundle.getBundle("db");
+        ResourceBundle rb = ResourceBundle.getBundle("database");
 
         String url = rb.getString("DB_PATH");
         String user = rb.getString("DB_USER");
@@ -92,7 +92,7 @@ public class CotxeDAOJDBCOracleImpl implements DAO<Cotxe> {
      */
     @Override
     public List<Cotxe> getAll() throws DAOException {
-        ResourceBundle rb = ResourceBundle.getBundle("db");
+        ResourceBundle rb = ResourceBundle.getBundle("database");
 
         String url = rb.getString("DB_PATH");
         String user = rb.getString("DB_USER");
@@ -146,7 +146,7 @@ public class CotxeDAOJDBCOracleImpl implements DAO<Cotxe> {
      * */
     //Creem el metode per inserir un cotxe
     public void insert(Cotxe cotxe) throws DAOException {
-        ResourceBundle rb = ResourceBundle.getBundle("db");
+        ResourceBundle rb = ResourceBundle.getBundle("database");
 
         String url = rb.getString("DB_PATH");
         String user = rb.getString("DB_USER");
@@ -198,7 +198,7 @@ public class CotxeDAOJDBCOracleImpl implements DAO<Cotxe> {
      * */
     //Creem el metode per actualitzar un cotxe
     public void update(Cotxe cotxe) throws DAOException {
-        ResourceBundle rb = ResourceBundle.getBundle("db");
+        ResourceBundle rb = ResourceBundle.getBundle("database");
 
         String url = rb.getString("DB_PATH");
         String user = rb.getString("DB_USER");
@@ -246,7 +246,7 @@ public class CotxeDAOJDBCOracleImpl implements DAO<Cotxe> {
      * */
     //Creem el metode per esborrar un cotxe
     public void delete(Cotxe cotxe) throws DAOException {
-        ResourceBundle rb = ResourceBundle.getBundle("db");
+        ResourceBundle rb = ResourceBundle.getBundle("database");
 
         String url = rb.getString("DB_PATH");
         String user = rb.getString("DB_USER");
@@ -291,7 +291,7 @@ public class CotxeDAOJDBCOracleImpl implements DAO<Cotxe> {
      */
     //Metode per crear les taules i el trigger si no ho tenim a la base de dades
     public static void createTables() throws DAOException {
-        ResourceBundle rb = ResourceBundle.getBundle("db");
+        ResourceBundle rb = ResourceBundle.getBundle("database");
 
         String url = rb.getString("DB_PATH");
         String user = rb.getString("DB_USER");
